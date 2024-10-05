@@ -132,7 +132,7 @@ describe('validation/serialization.spec.ts', function () {
         const ruleProperty = new RuleProperty(expression, name);
         const [req, regex, maxLen] = simpleRuleList;
         const propertyRule = new PropertyRule(container, validationRules, messageProvider, ruleProperty, [[req.getRule(), maxLen.getRule()], [regex.getRule()]]);
-        assert.strictEqual(ValidationSerializer.serialize(propertyRule), `{"$TYPE":"PropertyRule","property":${serializedProperty},"$rules":[[${req.serializedRule},${maxLen.serializedRule}],[${regex.serializedRule}]]}`);
+        assert.strictEqual(ValidationSerializer.serialize(propertyRule), `{"$TYPE":"PropertyRule","property":${serializedProperty},"$rules":[[${req.serializedRule},${maxLen.serializedRule}],[${regex.serializedRule}]],"isGroupMember":false}`);
       });
     });
     describe('deserialization', function () {
